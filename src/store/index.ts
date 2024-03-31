@@ -1,0 +1,43 @@
+import { defineStore } from 'pinia'
+
+export const useStore = defineStore({
+    id: 'escape-artist-store',
+    state: () => ({
+        selectedCopIndex:0,
+        selectedCity: null,
+        selectedVehicle: null,
+        captureStatus: false,
+        capturingCop: null,
+        cops:[
+            { name: "Cop 1", selectedCity: null, selectedVehicle: null },
+            { name: "Cop 2", selectedCity: null, selectedVehicle: null },
+            { name: "Cop 3", selectedCity: null, selectedVehicle: null }
+        ],
+    }),
+    actions: {
+        selectCity(city: any,copID:number) {
+            this.selectedCity = city
+            this.cops[copID].selectedCity=city
+
+        },
+        selectVehicle(vehicle: any,copID:number) {
+            this.selectedVehicle = vehicle
+            this.cops[copID].selectedVehicle = vehicle
+        },
+        setCaptureStatus(status: any) {
+            this.captureStatus = status
+        },
+        setCapturingCop(cop: any) {
+            this.capturingCop = cop
+        },
+        async determineCaptureStatus() {
+            const response = await fetch('http://localhost:3000/capture-status');
+            const data = await response.json();
+            this.captureStatus = data.captureStatus;
+            this.capturingCop = data.capturingCop;
+        }
+    },
+    getters: {
+        // Add getters if needed
+    }
+})
