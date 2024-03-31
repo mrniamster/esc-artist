@@ -36,7 +36,7 @@ export default {
 
     // Fetch vehicles from backend API
     // Example using axios: 
-    axios.get('http://localhost:3000/vehicles').then(response => {
+    axios.get('https://esc-artist-back.vercel.app/vehicles').then(response => {
       vehicles.value = response.data;
     });
 

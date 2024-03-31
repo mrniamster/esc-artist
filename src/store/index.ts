@@ -31,7 +31,7 @@ export const useStore = defineStore({
             this.capturingCop = cop
         },
         async determineCaptureStatus() {
-            const response = await fetch('http://localhost:3000/capture-status', {
+            const response = await fetch('https://esc-artist-back.vercel.app/capture-status', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(this.cops),

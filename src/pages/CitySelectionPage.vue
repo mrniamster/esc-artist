@@ -36,7 +36,7 @@ export default {
     
     // Fetch cities from backend API
     // Example using axios: 
-    axios.get('http://localhost:3000/cities').then(response => {
+    axios.get('https://esc-artist-back.vercel.app/cities').then(response => {
       cities.value = response.data;
     });
 
