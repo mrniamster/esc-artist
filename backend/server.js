@@ -65,7 +65,6 @@ app.post('/capture-status', (req, res) => {
         }
         console.log('res', closestCop)
     });
-
     if (closestCop.distance <= vehicles.find((v) => v.kind == closestCop.selectedVehicle).range) {
         res.json({ captureStatus: true, capturingCop: closestCop.name });
     } else {
