@@ -3,24 +3,24 @@ import { defineStore } from 'pinia'
 export const useStore = defineStore({
     id: 'escape-artist-store',
     state: () => ({
-        selectedCopIndex:0,
+        selectedCopIndex: 0,
         selectedCity: null,
         selectedVehicle: null,
         captureStatus: false,
         capturingCop: null,
-        cops:[
+        cops: [
             { name: "Cop 1", selectedCity: null, selectedVehicle: null },
             { name: "Cop 2", selectedCity: null, selectedVehicle: null },
             { name: "Cop 3", selectedCity: null, selectedVehicle: null }
         ],
     }),
     actions: {
-        selectCity(city: any,copID:number) {
+        selectCity(city: any, copID: number) {
             this.selectedCity = city
-            this.cops[copID].selectedCity=city
+            this.cops[copID].selectedCity = city
 
         },
-        selectVehicle(vehicle: any,copID:number) {
+        selectVehicle(vehicle: any, copID: number) {
             this.selectedVehicle = vehicle
             this.cops[copID].selectedVehicle = vehicle
         },
@@ -31,7 +31,11 @@ export const useStore = defineStore({
             this.capturingCop = cop
         },
         async determineCaptureStatus() {
-            const response = await fetch('http://localhost:3000/capture-status');
+            const response = await fetch('http://localhost:3000/capture-status', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(this.cops),
+            });
             const data = await response.json();
             this.captureStatus = data.captureStatus;
             this.capturingCop = data.capturingCop;

@@ -2,9 +2,12 @@
   <div>
     <h1>Welcome to the Escape Artist Game!</h1>
     <p>Help the fearless cops capture the fugitive hiding in one of the neighboring cities.</p>
-    <router-link to="/city-selection">
+    <img  src="https://i.ibb.co/jHkLC2M/image.png" class="img-fluid"/>
+    <p>
+      <router-link to="/city-selection">
       <button>Start Game</button>
     </router-link>
+    </p>
   </div>
 </template>
 

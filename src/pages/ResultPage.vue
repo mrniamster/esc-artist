@@ -1,8 +1,24 @@
 <template>
-  <div>
+ 
+   <div class="results-page">
+    <div class="confetti-background"></div>
+    <div class="content">
+      <div>
     <h2>Game Result</h2>
-    <p v-if="captureStatus">The fugitive has been captured by {{ capturingCop }}</p>
+    <p v-if="captureStatus">The fugitive has been captured by  👮‍♂️ {{ capturingCop }}</p>
     <p v-else>The fugitive has not been captured. Better luck next time!</p>
+
+    <img   class="img-fluid" src="https://i.ibb.co/1QPc4Rm/image.png" />
+    <p>
+      <RouterLink to="/">
+<button>
+        🔄 RESTART
+     </button>
+      </RouterLink>
+      
+    </p>
+  </div>
+    </div>
   </div>
 </template>
 
@@ -27,3 +43,8 @@ export default {
   }
 }
 </script>
+
+
+<style scoped>
+
+</style>

@@ -1,12 +1,21 @@
 <template>
   <div>
     <h2>Select a city to investigate</h2>
-    <ul>
+    <p>Assign the cops to each city</p>
+    <div class="row">
 
-      <li v-for="city in cities" :key="city.name">
-        <button @click="selectCity(city)" :disabled="$store.cops" >{{ city.name }}</button>
-      </li>
-    </ul>
+      <div  class="col-md-4" v-for="city in cities" :key="city.name">
+        
+        <button @click="selectCity(city)" :disabled="isCitySelectionDisabled(city) != -1" >
+          <img class="img-fluid" :src="city.img" />
+          <p> {{ city.name }}</p>
+          <div :class="[isCitySelectionDisabled(city) == -1 ?'' : 'alert alert-warning']" role="alert">
+              {{ isCitySelectionDisabled(city) == -1 ? '' : `👮‍♂️ Cop-${isCitySelectionDisabled(city)}` }}
+          </div>
+          
+          </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -33,21 +42,32 @@ export default {
 
     const selectCity = (city) => {
       const cityDir = store.cops.map((e) => e.selectedCity);
-     
       if (cityDir.includes(null)) {
         const copIndex = cityDir.indexOf(null)
-        store.selectCity(city,copIndex);
+        
+        store.selectCity(city.name, copIndex);
+        if (copIndex===2) {
+          router.push('/vehicle-selection');
+        }
         return
       }
-      store.selectedCopIndex = 0;
+
       // Navigate to vehicle selection page
-      router.push('/vehicle-selection');
+      
     }
+    const isCitySelectionDisabled = (city) => {
+      // Check if any cop has not selected a city yet
+      return store.cops.findIndex(cop => cop.selectedCity === city.name);
+    };
 
     return {
       cities,
-      selectCity
+      selectCity,
+      isCitySelectionDisabled
     };
+  },
+  computed: {
+    
   }
 }
 </script>
