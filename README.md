@@ -4,7 +4,7 @@ Welcome to the Fugitive Capture Game! This application allows three cops to inde
 
 ## Technologies Used
 
-- Frontend: Vue.js
+- Frontend: Vue.js,Typescript,Pinia
 - Backend: Node.js with Express
 
 ## Setup Instructions
