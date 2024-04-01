@@ -9,11 +9,16 @@ Welcome to the Fugitive Capture Game! This application allows three cops to inde
 
 ## Setup Instructions
 
-1. Clone this repository to your local machine.
+### Fronend
+1. Clone https://github.com/mrniamster/esc-artist  repository to your local machine.
 2. Navigate to the project directory.
 3. Install dependencies using npm or yarn:
-
 6. Open your browser and navigate to [http://localhost:8080](http://localhost:8080) to access the application.
+
+### Backend
+1. Clone repo: https://github.com/mrniamster/esc-artist-back
+2. npm install
+3. npm run start
 
 ## Game Instructions
 
@@ -26,14 +31,9 @@ Welcome to the Fugitive Capture Game! This application allows three cops to inde
 
 - `src/` - Contains frontend source code.
 - `components/` - Vue.js components.
-- `store/` - Vuex store modules.
-- `views/` - Vue.js views (pages).
-- `server/` - Contains backend source code.
-- `controllers/` - Express route controllers.
-- `routes/` - Express routes.
-- `services/` - Business logic services.
-- `validators/` - Input validation logic.
-- `data/` - In-memory data storage.
+- `store/` - Pinia store modules.
+- `pages/` - Vue.js views (pages). 
+- `backend/` - Backend files - In-memory data storage.
 
 ## Additional Notes
 
