@@ -11,7 +11,7 @@
     <img   class="img-fluid" src="https://i.ibb.co/1QPc4Rm/image.png" />
     <p>
       <RouterLink to="/">
-<button>
+<button @click="resetStore">
         🔄 RESTART
      </button>
       </RouterLink>
@@ -33,12 +33,17 @@ export default {
 
     const captureStatus = computed(() => store.captureStatus);
     const capturingCop = computed(() => store.capturingCop);
+    const resetStore = () => {
+      store.$reset();
+    }
     onMounted(() => {
       store.determineCaptureStatus();
+      
     });
     return {
       captureStatus,
-      capturingCop
+      capturingCop,
+      resetStore
     };
   }
 }
