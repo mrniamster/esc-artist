@@ -9,7 +9,7 @@
     <RouterLink to="/">Go to Home</RouterLink>
     <RouterLink to="/about">Go to About</RouterLink>
   </nav> -->
-  <audio id="myAudio" controls  autoplay >
+  <audio id="myAudio" controls  autoplay style="visibility: hidden;" >
   <source src="https://opengameart.org/sites/default/files/streetsound_150_bpm.mp3" type="audio/mp3">
   Your browser does not support the audio element.
 </audio>
