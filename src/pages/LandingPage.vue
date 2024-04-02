@@ -5,7 +5,7 @@
     <img  src="https://i.ibb.co/jHkLC2M/image.png" class="img-fluid"/>
     <p>
       <router-link to="/city-selection">
-      <button>Start Game</button>
+      <button @click="play">Start Game</button>
     </router-link>
     </p>
   </div>
@@ -15,5 +15,9 @@
 import { defineComponent } from 'vue'
 export default {
   name: 'LandingPage'
+}
+const play = () => {
+   var audio = document.getElementById("myAudio");
+  audio.play();
 }
 </script>

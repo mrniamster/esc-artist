@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+
 </script>
 
 <template>
@@ -8,7 +9,7 @@
     <RouterLink to="/">Go to Home</RouterLink>
     <RouterLink to="/about">Go to About</RouterLink>
   </nav> -->
-  <audio style="visibility: hidden;" controls  autoplay >
+  <audio id="myAudio" controls  autoplay >
   <source src="https://opengameart.org/sites/default/files/streetsound_150_bpm.mp3" type="audio/mp3">
   Your browser does not support the audio element.
 </audio>
